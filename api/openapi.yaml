@@ -1,0 +1,197 @@
+openapi: 3.0.1
+info:
+  title: KCrud
+  version: "1.0"
+servers:
+- url: https://localhost:7207/
+paths:
+  /contact:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+          description: Success
+      tags:
+      - Contact
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+          description: Success
+      tags:
+      - Contact
+  /contact/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+          description: Success
+      tags:
+      - Contact
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Contact'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: Success
+      tags:
+      - Contact
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Contact'
+                type: array
+          description: Success
+      tags:
+      - Contact
+components:
+  schemas:
+    Contact:
+      additionalProperties: false
+      example:
+        firstName: firstName
+        lastName: lastName
+        dateTimeCreated: 2000-01-23T04:56:07.000+00:00
+        isDeleted: true
+        nickName: nickName
+        id: 0
+        age: 6
+      properties:
+        id:
+          format: int32
+          type: integer
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        nickName:
+          nullable: true
+          type: string
+        age:
+          format: int32
+          type: integer
+        dateTimeCreated:
+          format: date-time
+          type: string
+        isDeleted:
+          type: boolean
+      type: object
+
